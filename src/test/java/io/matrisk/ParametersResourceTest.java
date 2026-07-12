@@ -1,13 +1,14 @@
 package io.matrisk;
 
-import io.quarkus.test.junit.QuarkusTest;
-import org.junit.jupiter.api.Test;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
+import org.junit.jupiter.api.Test;
+
+import io.quarkus.test.junit.QuarkusTest;
+
 @QuarkusTest
-class GreetingResourceTest {
+class ParametersResourceTest {
     @Test
     void testHelloEndpoint() {
         given()
