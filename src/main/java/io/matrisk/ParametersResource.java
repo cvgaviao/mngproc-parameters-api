@@ -1,5 +1,6 @@
 package io.matrisk;
 
+import java.util.List;
 import java.util.Map;
 
 import jakarta.ws.rs.GET;
@@ -25,13 +26,17 @@ public class ParametersResource {
         }
 
         if (processId.equals("calculus_one")) {
-            return new ProcessParameters(processId, Map.of("TaskOne",
-                    Map.of("param11", "value1", "param12", "value2"), "TaskTwo",
-                    Map.of("param1A", "valueA", "param1B", "valueB")));
+            
+            var taskOneParameter = new TasksParameters("TaskOne", Map.of("param11", "value1", "param12", "value2"));
+            var taskTwoParameter = new TasksParameters("TaskTwo", Map.of("param1A", "valueA", "param1B", "valueB"));
+            
+            return new ProcessParameters(processId, List.of(taskOneParameter, taskTwoParameter));
         }
-        return new ProcessParameters(processId, Map.of("TaskOne",
-                Map.of("param21", "value1", "param22", "value2"), "TaskTwo",
-                Map.of("param2A", "valueA", "param2B", "valueB")));
+        var taskOneParameter = new TasksParameters("TaskOne", Map.of("param11", "value1", "param12", "value2"));
+        var taskTwoParameter = new TasksParameters("TaskTwo", Map.of("param1A", "valueA", "param1B", "valueB"));
+        var taskThreeParameter = new TasksParameters("TaskThree", Map.of("param3A", "valueA", "param3B", "valueB"));
+        
+        return new ProcessParameters(processId, List.of(taskOneParameter, taskTwoParameter, taskThreeParameter));
 
     }
 

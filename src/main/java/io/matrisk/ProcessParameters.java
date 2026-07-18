@@ -1,8 +1,8 @@
 package io.matrisk;
 
-import java.util.Map;
+import java.util.List;
 
 public record ProcessParameters(
     String processName,
-    Map<String, Map<String, String>> taskParameters
+    List<TasksParameters> taskParameters
 ) {}
